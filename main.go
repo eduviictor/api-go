@@ -31,5 +31,10 @@ func main() {
 
 		port := os.Getenv("PORT")
 
+		if port == "" {
+			port = "8080"
+			log.Fatal("No PORT environment variable detected, defaulting to " + port)
+		}
+
 		app.Listen(":" + port)
 }
